@@ -10,6 +10,10 @@ import { ApiService } from './api.service';
 @Injectable()
 export class UserService {
   public myData = "initial";
+
+  private isAuthenticatedSubject = new ReplaySubject<boolean>(1);
+  public isAuthenticated = this.isAuthenticatedSubject.asObservable();
+
   constructor(
     private apiService: ApiService,
     private http: Http
