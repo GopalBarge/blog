@@ -21,14 +21,16 @@ export class UserService {
 
   getTestDataFromServer(){
     console.log("inside UserServices");
-    this.apiService.get('/')
-    .subscribe(
-      data => this.setData(data)     
-    );
+   return this.apiService.get('home.php');
  
+  }
+   getAll(): Observable<[string]> {
+    return this.apiService.get('/')
+           .map(data => data);
   }
 
   setData(data){
+    console.log(JSON.stringify(data));
     this.myData = data;
   }
 }

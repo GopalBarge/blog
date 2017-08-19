@@ -2,32 +2,65 @@ import { BrowserModule } from '@angular/platform-browser';
 import {ModuleWithProviders, NgModule } from '@angular/core';
 import { HttpModule} from '@angular/http';
 import { AppComponent } from './app.component';
-import { HomeModule } from './home/home.module';
-import { RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { BlogComponent } from './blog/blog.component';
+import { RouterModule, Routes } from '@angular/router';
 
-const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: false });
+/*
+const appRoutes: Routes = [
+  { path: 'crisis-center', component: CrisisListComponent },
+  { path: 'hero/:id',      component: HeroDetailComponent },
+  {
+    path: 'heroes',
+    component: HeroListComponent,
+    data: { title: 'Heroes List' }
+  },
+  { path: '',
+    redirectTo: '/heroes',
+    pathMatch: 'full'
+  },
+  { path: '**', component: PageNotFoundComponent }
+];
+*/
+const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
+   { path: 'blog/:title', component: BlogComponent }
+  
+];
+const rootRouting: ModuleWithProviders = RouterModule.forRoot(appRoutes, { useHash: false });
+// const homeRouting: ModuleWithProviders = RouterModule.forChild([
+//   {
+//     path: '',
+//     component: HomeComponent
+//   }
+// ]);
 
 import {
   ApiService,
   UserService,
+  BlogService,
   HeaderComponent,
+  HeaderinnerComponent,
   FooterComponent
 } from './shared';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    HeaderinnerComponent,
+    FooterComponent,
+    HomeComponent,
+    BlogComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    HomeModule,
     rootRouting
   ],
   providers: [
     ApiService,
-    UserService
+    UserService,
+    BlogService
   ],
   bootstrap: [AppComponent]
 })

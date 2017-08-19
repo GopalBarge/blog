@@ -1,0 +1,66 @@
+<layout-headerinner></layout-headerinner>
+<section> 
+
+      <div class="content">
+
+
+        <!--  User info and post time-->
+
+        <div class="user-info">                
+         <a href="#" id="post-user-img"><img src="//oread.in/oread_files/scarllet.jpg" /></a>
+         <a href="#" id="post-user"><p>{{post.user_name}} <span id="post-time">{{post.post_elapsed_time}}</span></p></a>
+       </div>
+
+       <!--  User info and post time-->
+
+       <div class="category-info">
+        <a href="#" id="category">{{post.cat_name}}</a>
+      </div>   
+
+
+
+      <div class="post-content">
+
+        <h2>{{post.post_title}}</h2>
+
+       
+        <p>{{post.post_content}}</p>
+
+      </div>
+
+ <ul class="comments">
+
+      <!--comments-->
+      <form action="" method="post">
+
+       <input id="comment-box" type="text"  name="comment" placeholder="Add a comment" />
+       
+       <input class="post-comment" id="post-comment" name="add_comment" type="button"  onclick="$('#myBtn').click();" value="Add" />
+     
+     </form>
+     <!--comments end-->
+   </ul>
+
+   <ul class="comments" id="comments-ul">{{comments}}
+<li *ngFor="let comment of comments">
+       <a href="#" id="comment-user-img"><img src="//oread.in/oread_files/scarllet.jpg" />
+         <p id="comment-user">{{comment.user_name}}<span id="comment-time">{{comment.comment_elapsed_time}}</span></p></a>
+         <p id="comment">
+          {{comment.comment_content}}
+        </p>
+        <p style="display:none;" id="{{comment.comment_ID}}_reply">
+           <input id="{{comment.comment_ID}}_comment-box" type="text"  name="comment" placeholder="Add a comment" />
+       
+       <input class="post-comment" id="post-comment" name="add_comment" type="button"  onclick="$('#myBtn').click();" value="Reply" />
+      
+          </p>
+          <div id="{{comment.comment_ID}}_comment">
+          
+          </div>
+        <p><a  class="post-comment">Reply</a> </p>
+
+      </li>
+   </ul>
+    </div>
+   
+</section>

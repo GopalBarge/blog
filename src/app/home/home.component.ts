@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 import {  UserService } from '../shared';
 
@@ -9,20 +8,15 @@ import {  UserService } from '../shared';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  constructor(
-    private router: Router,
+public posts:any;
+  constructor(   
     private userService: UserService
   ) {}
   isAuthenticated: boolean;
   ngOnInit() {
-    this.userService.isAuthenticated.subscribe(
-      (authenticated) => {
-        this.isAuthenticated = authenticated;
-
-      
-      }
-    );
+   this.userService.getTestDataFromServer().subscribe(data => {
+      this.posts = data;
+   });
+  
   }
-
 }
