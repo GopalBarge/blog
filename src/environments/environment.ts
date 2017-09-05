@@ -6,5 +6,5 @@
 export const environment = {
   production: false,
   //api_url: 'http://services.groupkt.com/state/get/IND/all'
-  api_url: 'http://oread.in/rest/'
+  api_url: 'http://localhost/rest/'
 };

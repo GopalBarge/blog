@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import {  UserService } from '../shared';
+import { BlogService ,UserService } from '../shared';
 
 @Component({
   selector: 'home-page',
@@ -10,13 +10,15 @@ import {  UserService } from '../shared';
 export class HomeComponent implements OnInit {
 public posts:any;
   constructor(   
-    private userService: UserService
+    private userService: UserService,
+    private blogService: BlogService
   ) {}
   isAuthenticated: boolean;
   ngOnInit() {
-   this.userService.getTestDataFromServer().subscribe(data => {
+   this.blogService.getBlogs().subscribe(data => {
       this.posts = data;
-   });
+  });
+
   
   }
 }

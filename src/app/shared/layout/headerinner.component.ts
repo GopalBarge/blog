@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 
 @Component({
   selector: 'layout-headerinner',
@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./headerinner.component.css']
 })
 export class HeaderinnerComponent implements OnInit {
-
+  
   constructor() { }
 
   ngOnInit() {
+   
   }
-
+ 
 }

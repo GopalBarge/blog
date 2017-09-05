@@ -7,14 +7,14 @@
         <!--  User info and post time-->
 
         <div class="user-info">                
-         <a href="#" id="post-user-img"><img src="//oread.in/oread_files/scarllet.jpg" /></a>
-         <a href="#" id="post-user"><p>{{post.user_name}} <span id="post-time">{{post.post_elapsed_time}}</span></p></a>
+         <a routerLink="/profile/{{post.user_name}}" id="post-user-img"><img src="//oread.in/oread_files/scarllet.jpg" /></a>
+         <a routerLink="/profile/{{post.user_name}}" id="post-user"><p>{{post.user_name}} <span id="post-time">{{post.post_elapsed_time}}</span></p></a>
        </div>
 
        <!--  User info and post time-->
 
        <div class="category-info">
-        <a href="#" id="category">{{post.cat_name}}</a>
+        <a routerLink="/category/{{post.cat_id}}" id="category">{{post.cat_name}}</a>
       </div>   
 
 
@@ -41,13 +41,18 @@
      <!--comments end-->
    </ul>
 
-   <ul class="comments" id="comments-ul">{{comments}}
+   <ul class="comments" id="comments-ul">
 <li *ngFor="let comment of comments">
        <a href="#" id="comment-user-img"><img src="//oread.in/oread_files/scarllet.jpg" />
          <p id="comment-user">{{comment.user_name}}<span id="comment-time">{{comment.comment_elapsed_time}}</span></p></a>
          <p id="comment">
           {{comment.comment_content}}
+          
         </p>
+        <ul class="comments" *ngIf="comment.subComments.length">
+            <li *ngFor="let subcomment of comment.subComments">
+                {{subcomment.comment_content}}</li>
+</ul>
         <p style="display:none;" id="{{comment.comment_ID}}_reply">
            <input id="{{comment.comment_ID}}_comment-box" type="text"  name="comment" placeholder="Add a comment" />
        

@@ -4,6 +4,7 @@ import { HttpModule} from '@angular/http';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { BlogComponent } from './blog/blog.component';
+import { CategoryComponent } from './category/category.component';
 import { RouterModule, Routes } from '@angular/router';
 
 /*
@@ -24,16 +25,13 @@ const appRoutes: Routes = [
 */
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-   { path: 'blog/:title', component: BlogComponent }
+   { path: 'blog/:title', component: BlogComponent },
+   { path: 'category/:id', component: CategoryComponent },
+   { path: 'profile/:username', component: ProfileComponent }
   
 ];
-const rootRouting: ModuleWithProviders = RouterModule.forRoot(appRoutes, { useHash: false });
-// const homeRouting: ModuleWithProviders = RouterModule.forChild([
-//   {
-//     path: '',
-//     component: HomeComponent
-//   }
-// ]);
+const rootRouting: ModuleWithProviders = RouterModule.forRoot(appRoutes, { useHash: true });
+
 
 import {
   ApiService,
@@ -41,8 +39,12 @@ import {
   BlogService,
   HeaderComponent,
   HeaderinnerComponent,
-  FooterComponent
+  FooterComponent,
+  ShowPostComponent
 } from './shared';
+import { ProfileComponent } from './profile/profile.component';
+import { AuthComponent } from './auth/auth.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +52,11 @@ import {
     HeaderinnerComponent,
     FooterComponent,
     HomeComponent,
-    BlogComponent
+    BlogComponent,
+    CategoryComponent,
+    ShowPostComponent,
+    ProfileComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,

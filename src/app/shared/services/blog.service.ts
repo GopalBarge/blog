@@ -9,14 +9,21 @@ import 'rxjs/add/operator/catch';
 import { ApiService } from './api.service';
 @Injectable()
 export class BlogService {
-
+  private restUrl = "blog.php?"
+  private restUrlForCategory = this.restUrl+'action=categoryposts';
    constructor(
     private apiService: ApiService,
     private http: Http
   ) { }
- getPostByTitle(title){
-    console.log("inside BlogService");
-   return this.apiService.get('blog.php?title='+title);
- 
+ getPostByTitle(title){   
+   return this.apiService.get(this.restUrl+'title='+title); 
+  }
+
+  getCategorypostsById(catId){
+    return this.apiService.get(this.restUrlForCategory+'&id='+catId); 
+  }
+
+  getBlogs(){
+    return this.apiService.get('blog.php');
   }
 }

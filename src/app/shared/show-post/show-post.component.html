@@ -1,0 +1,31 @@
+
+<li >
+	<div class="user-info"><a href="#" id="post-user-img"><img src="//oread.in/oread_files/scarllet.jpg" /></a>
+
+	<p><a routerLink="/profile/{{post.user_name}}" id="post-user">{{post.user_name}} <span id="post-time">{{post.post_elapsed_time}}</span></a></p>
+	</div>
+	
+
+	<div class="category-info"><a routerLink="/category/{{post.cat_id}}" id="category">{{post.cat_name}}</a></div>
+
+	<div class="post-content">
+	<h2>			
+		<a *ngIf="post.post_type == 'post'" routerLink="/blog/{{post.post_name}}" id="post-content">{{post.post_title}}</a>
+		<a *ngIf="post.post_type == 'link'" target="_BLANK" href="{{post.guide}}" id="post-content">{{post.post_title}}</a></h2>
+		
+	<div class="image-wrap" id="wrapper"><a href="#" id="post-content"><img src="//oread.in/oread_files/img/female-reproductive.png" /> </a></div>
+
+	<p><a routerLink="/blog/{{post.post_name}}" id="post-content">{{post.post_content.substring(0,200) }}</a></p>
+	</div>
+
+
+
+	<div class="social-icon">
+		<a onclick="$('#myBtn').click();" id="likes"><span class="fa fa-heart fa-lg" aria-hidden="true"></span>{{post.like_count}}</a>
+		<a onclick="$('#myBtn').click();" id="comments"><span class="fa fa-comment fa-lg" aria-hidden="true"></span>{{post.comment_count}}</a>
+		<a onclick="$('#myBtn').click();" id="share"><span class="fa fa-share-alt fa-lg" aria-hidden="true"></span></a>
+		 
+	</div>
+	
+	
+	</li>

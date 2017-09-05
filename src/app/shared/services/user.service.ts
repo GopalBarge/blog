@@ -24,6 +24,10 @@ export class UserService {
    return this.apiService.get('home.php');
  
   }
+
+  getUserPosts(username){
+    return this.apiService.get('user.php?userName='+username);
+  }
    getAll(): Observable<[string]> {
     return this.apiService.get('/')
            .map(data => data);

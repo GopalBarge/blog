@@ -1,26 +1,15 @@
+<script>
+		$(function() {
+		 $( "#tabs-1" ).tabs();
+	   });
+	 </script>
 <layout-header></layout-header>
 <section>
 <div class="tabcontent">
 <ul class="cols" id="post-container">
-	<li *ngFor="let post of posts"><!--	User info and post time-->
-	<div class="user-info"><a href="#" id="post-user-img"><img src="//oread.in/oread_files/scarllet.jpg" /></a>
+	
+	<app-show-post *ngFor="let post of posts" [post]="post"></app-show-post>
 
-	<p><a href="#" id="post-user">{{post.user_name}} <span id="post-time">{{post.post_elapsed_time}}</span></a></p>
-	</div>
-	<!--	User info and post time-->
-
-	<div class="category-info"><a href="#" id="category">{{post.cat_name}}</a></div>
-
-	<div class="post-content">
-	<h2><a href="/blog/{{post.post_name}}" id="post-content">{{post.post_title}}</a></h2>
-
-	<div class="image-wrap" id="wrapper"><a href="#" id="post-content"><img src="//oread.in/oread_files/img/female-reproductive.png" /> </a></div>
-
-	<p><a href="/blog/{{post.post_name}}" id="post-content">{{post.post_content}}</a></p>
-	</div>
-
-	<div class="social-icon"><a href="#" id="likes">{{post.like_count}}K</a> <a href="#" id="comments">{{post.comment_count}}</a></div>
-	</li>
 	
 </ul>
 <!--<hr/> --></div>

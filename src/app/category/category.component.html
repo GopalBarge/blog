@@ -1,0 +1,27 @@
+<layout-headerinner></layout-headerinner>
+
+<section>     
+        
+        <div class="category-profile">
+
+            <h2 class="subcategory-name">{{catfollow.cat_name}}</h2>
+            <span class="followers">{{catfollow.followers}} Followers</span>
+
+
+            <div id="extra"></div>
+        </div>
+        
+
+        <div id="post" class="tabcontent">
+
+            <ul id="post-container" class="cols">
+
+                 
+                <app-show-post *ngFor="let post of posts" [post]="post"></app-show-post>
+                            
+                       
+
+            </ul>
+        </div>
+        </section>
+

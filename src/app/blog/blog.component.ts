@@ -9,17 +9,16 @@ import {  BlogService } from '../shared';
 })
 export class BlogComponent implements OnInit {
 private sub: any;
-private post:any;
-private comments:any;
+public post:any;
+public comments:any;
    constructor(
      private route: ActivatedRoute,
-    private blogService :BlogService
+     private blogService :BlogService
     ) { }
 
   ngOnInit() {
-  this.sub = this.route.params.subscribe(params => {
+    this.sub = this.route.params.subscribe(params => {
       // this.id = +params['title']; // (+) converts string 'id' to a number
-console.log(params['title']);
        this.blogService.getPostByTitle(params['title']).subscribe(postData => {
       this.post = postData.post;
       this.comments = postData.comments;

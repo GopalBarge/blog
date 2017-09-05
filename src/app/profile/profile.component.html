@@ -1,0 +1,69 @@
+<layout-headerinner></layout-headerinner>
+<section>
+
+	<div class="user-profile">
+
+
+		<div class="user-img">
+			<img id="uploadimage" src="//oread.in/oread_files/scarllet.jpg" />
+			<h2>{{profileData.name}}</h2>
+			<p>@{{profileData.user_login}}</p>
+
+
+			<ul class="tab">
+				<li><a (click)="showPost()"><span>{{profileData.topics}}</span>Topics</a></li>
+				<li><a (click)="showFollows()"><span>{{follows.length}}</span>Followers</a></li>
+				<li><a (click)="showFollowings()"><span>{{followings.length}}</span>Following</a></li>
+			</ul>
+
+		</div>
+	</div>
+
+	<div class="tabcontent" *ngIf="isPost">
+		<ul class="cols" id="post-container">
+			<app-show-post *ngFor="let post of posts" [post]="post"></app-show-post>
+		</ul>
+	</div>
+
+	<div id="followers" class="tabcontent" *ngIf="isFollow">
+		<ul id="follower-container">
+			<li *ngFor="let follow of follows">
+				<div class="follower-info">
+					<a routerLink="/profile/{{follow.user_login}}" class="follower-img"><img src="//oread.in/oread_files/scarllet.jpg" class="avatar"/></a>
+					<a routerLink="/profile/{{follow.user_login}}" id="follower">
+						<p>{{follow.name}} <span id="post-time">@{{follow.user_login}}
+									 </span></p>
+					</a>
+				</div>
+				<a class="follow-btn-link">
+					<div class="follow-btn" (click)="followUser(follow.id)">Follow</div>
+				</a>
+				<div id="extra"></div>
+			</li>
+
+		</ul>
+
+	</div>
+<div id="following" class="tabcontent" *ngIf="isFollowing">
+	<ul id="follower-container">
+
+		<li *ngFor="let following of followings">
+			<div class="follower-info">
+				<a routerLink="/profile/{{following.user_login}}" class="follower-img"><img src="//oread.in/oread_files/scarllet.jpg" class="avatar"/></a>
+				<a routerLink="/profile/{{following.user_login}}" id="follower">
+					<p>{{following.name}} <span id="post-time">@{{following.user_login}}
+							</span></p>
+				</a>
+			</div>
+
+
+			<a class="follow-btn-link">
+				<div class="unfollow-btn" (click)="followUser(follow.id)">Unfollowing</div>
+			</a>
+			<div id="extra"></div>
+
+		</li>
+	</ul>
+</div>
+
+</section>

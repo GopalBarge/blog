@@ -1,55 +1,107 @@
-
 <header>
-  <a href="index.html">
-    <img alt="oread Logo" class="logo" src="//oread.in/oread_files/oread-logo.svg" width="60" /></a> 
-    <label> <input id="search" placeholder="Search" type="text" /> </label>
-<nav>
-<ul>
-	<li><a id="myBtn">Sign In or Register</a></li>
-	<li></li>
-</ul>
-</nav>
-<!-- Login Modal -->
+	<a href="index.html">
+    <img alt="oread Logo" class="logo" src="//oread.in/oread_files/oread-logo.svg" width="60" /></a>
+	<label> <input id="search" placeholder="Search" type="text" /> </label>
+	<nav>
+		<ul>
+			<li><a id="myBtn" (click)="showLogin('loginModal')">Sign In or Register</a></li>
+			<li><a href='https://play.google.com/store/apps/details?id=com.knowledgeflow.oread' target="_blank">
+		<i class="fa fa-mobile fa-3x" aria-hidden="true"></i></a></li>
+		</ul>
+	</nav>
+	<!-- Login Modal -->
 
-<div class="modal" id="myModal"><!-- Modal content -->
-<div class="modal-content"><span class="close"><img src="//oread.in/oread_files/close-button.png" width="20" /></span>
+	<div class="modal" id="loginModal">
+		<!-- Modal content -->
+		<div class="modal-content"><span class="close" (click)="closeModel('loginModal')"><img src="//oread.in/oread_files/close-button.png" width="20" /></span>
 
-<div id="tabs-1">
-<ul>
-	<li><a href="#sigin">Sign In</a></li>
-	<li><a href="#register">Register</a></li>
-</ul>
-<!-- sign in form-->
+			<div id="tabs-1">
+				<ul>
+					<li><a href="#sigin">Sign In</a></li>
+					<li><a href="#register">Register</a></li>
+				</ul>
+				<!-- sign in form-->
 
-<div class="login-tabcontent" id="sigin">
-<h2>Sign in to o&#39;read</h2>
+				<div class="login-tabcontent" id="sigin">
+					<h2>Sign in to o&#39;read</h2>
 
-<div class="social-option"></div>
+					<div class="social-option">
+						<a href="#" class="facebook-login"><span class="fa fa-heart fa-facebook fa-lg" aria-hidden="true"></span></a>
+						<a href="#" class="twitter-login"><span class="fa fa-heart fa-twitter fa-lg" aria-hidden="true"></span></a>
+						<a href="#" class="google-login"><span class="fa fa-heart fa-google-plus fa-lg" aria-hidden="true"></span></a>
 
-<p>or Login with Email</p>
+					</div>
 
-<form action=""><input name="username" placeholder="User Name or Email" required="" type="text" /> <input name="password" placeholder="Password" required="" type="password" /><button type="submit">Sign In</button> <span class="psw"><a href="#">Forgot password?</a></span></form>
-<!-- sign in form--></div>
+					<p>or Login with Email</p>
 
-<div class="login-tabcontent" id="register">
-<h2>Join o&#39;read</h2>
+					<form (ngSubmit)="submitForm()">
+						<input name="username" placeholder="User Name or Email" required="" type="text" />
+						 <input name="password" placeholder="Password"
+						 required="" type="password" />
+						 <button type="submit">Sign In</button>
+						  <span class="psw"><a href="#">Forgot password?</a></span>
+						</form>
+					<!-- sign in form-->
+				</div>
 
-<p>You need to be signed in to this action. Please create an account.</p>
+				<div class="login-tabcontent" id="register">
+					<h2>Join o&#39;read</h2>
 
-<div class="social-option"></div>
+					<p>You need to be signed in to this action. Please create an account.</p>
 
-<p>or Login with Email</p>
+					<div class="social-option">
 
-<form action=""><input name="fullname" placeholder="Full Name" required="" type="text" /> <input name="email" placeholder="Email" required="" type="text" /> <input name="password" placeholder="Password" required="" type="password" /><button type="submit">Sign In</button> <span class="psw"><a href="#">Forgot password?</a></span></form>
-</div>
-</div>
-</div>
-<!-- Modal content --></div>
+						<a href="#" class="facebook-login"><span class="fa fa-heart fa-facebook fa-lg" aria-hidden="true"></span></a>
+						<a href="#" class="twitter-login"><span class="fa fa-heart fa-twitter fa-lg" aria-hidden="true"></span></a>
+						<a href="#" class="google-login"><span class="fa fa-heart fa-google-plus fa-lg" aria-hidden="true"></span></a>
+
+					</div>
+
+					<p>or Login with Email</p>
+
+					<form action=""><input name="fullname" placeholder="Full Name" required="" type="text" /> <input name="email" placeholder="Email" required=""
+						 type="text" /> <input name="password" placeholder="Password" required="" type="password" /><button type="submit">Sign In</button>						<span class="psw"><a href="#">Forgot password?</a></span></form>
+				</div>
+			</div>
+		</div>
+		<!-- Modal content -->
+	</div>
 </header>
 <section>
-<div class="header-inner">
-<div class="layer">
-<h1>What you read today! <span style="color: #FF2125;">o&#39;read</span></h1>
-</div>
-</div>
+	<div class="header-inner">
+		<div class="layer">
+			<h1>What you read today! <span style="color: #FF2125;">o&#39;read</span></h1>
+		</div>
+	</div>
 </section>
+
+
+
+<script>
+
+</script>
+
+
+<!--category tabs script-->
+
+
+<!--scroll fixed div-->
+<script>
+	var fixmeTop = $('.tab').offset().top;
+	$(window).scroll(function () {
+		var currentScroll = $(window).scrollTop();
+		if (currentScroll >= fixmeTop) {
+			$('.tab').css({
+				position: 'fixed',
+				top: '72px',
+				left: '0'
+			});
+		} else {
+			$('.tab').css({
+				position: 'static'
+			});
+		}
+	});
+
+</script>
+<!--scroll fixed div-->
